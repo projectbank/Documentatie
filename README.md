@@ -17,12 +17,14 @@ Welcome to the official API of project 3/4. Well, it is not actually official, b
     1. [Check saldo](https://github.com/projectbank/Documentatie#check-saldo)
         1. [Request](https://github.com/projectbank/Documentatie#request-2)
         1. [Response](https://github.com/projectbank/Documentatie#response-2)
+            1. [Success](https://github.com/projectbank/Documentatie#success-2)
+            1. [Error](https://github.com/projectbank/Documentatie#error-2)              
     1. [Withdraw money](https://github.com/projectbank/Documentatie#withdraw-money)
     1. [Transfer money](https://github.com/projectbank/Documentatie#transfer-money)
         1. [Request](https://github.com/projectbank/Documentatie#request-3)
         1. [Response](https://github.com/projectbank/Documentatie#response-3) 
-            1. [Success](https://github.com/projectbank/Documentatie#success-2)
-            1. [Error](https://github.com/projectbank/Documentatie#error-2)        
+            1. [Success](https://github.com/projectbank/Documentatie#success-3)
+            1. [Error](https://github.com/projectbank/Documentatie#error-3)        
 
 ## How to use the API
 
@@ -126,9 +128,11 @@ When a client wants to know his saldo, you can send an easy request to the API. 
 
 An example request will look like this: http://bowero.nl/api/clients/saldo.php?nuid=D0CC76AD&pin=0000.
 
-It has only 1 return possibility: the saldo. If you enter the wrong credentials, you will be returned `0`. It is your problem to handle that, since you already had the opportunity to check the credentials before calling this action. The wrong PIN will be registered however.
+It has 2 return possibilites: a `saldo` or an `error`.
 
 #### Response
+
+##### Success
 
 When your call is succesful, which it should be, you can expect a response like this:
 
@@ -138,15 +142,17 @@ saldo: 300
 }
 ```
 
+##### Error
+
 However, when your credentials are wrong, you will be responded this:
 
 ```json
 {
-saldo: 0
+error: 'Could not log in.'
 }
 ```
 
-As you see, this could also be a valid response. To avoid problems with this, it is strongly encouraged to check the credentials with the method above __before__ checking the balance.
+This will count forward to your log in attempts. Please check before sending a request to check the balance.
 
 ### Withdraw money
 
