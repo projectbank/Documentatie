@@ -16,7 +16,11 @@ Welcome to the official API of project 3/4. Well, it is not actually official, b
             1. [Error](https://github.com/projectbank/Documentatie#error-1)
     1. [Check saldo](https://github.com/projectbank/Documentatie#check-saldo)
         1. [Request](https://github.com/projectbank/Documentatie#request-2)
-        1. [Response](https://github.com/projectbank/Documentatie#response-2)     
+        1. [Response](https://github.com/projectbank/Documentatie#response-2)
+    1. [Withdraw money](https://github.com/projectbank/Documentatie#withdraw-money)
+    1. [Transfer money](https://github.com/projectbank/Documentatie#transfer-money)
+        1. [Request](https://github.com/projectbank/Documentatie#request-3)
+        1. [Response](https://github.com/projectbank/Documentatie#response-3)    
 
 ## How to use the API
 
@@ -118,7 +122,7 @@ When a client wants to know his saldo, you can send an easy request to the API. 
 
 #### Request
 
-An example request will look like this: http://bowero.nl/api/clients/saldo.php?nuid=D0CC76AD&pin=0000
+An example request will look like this: http://bowero.nl/api/clients/saldo.php?nuid=D0CC76AD&pin=0000.
 
 It has only 1 return possibility: the saldo. If you enter the wrong credentials, you will be returned `0`. It is your problem to handle that, since you already had the opportunity to check the credentials before calling this action. The wrong PIN will be registered however.
 
@@ -141,3 +145,27 @@ saldo: 0
 ```
 
 As you see, this could also be a valid response. To avoid problems with this, it is strongly encouraged to check the credentials with the method above __before__ checking the balance.
+
+### Withdraw money
+
+To withdraw money from your account, you just have to transfer money without a recipient. The default settings will ensure that your money gets perfectly lost. Follow the instructions at [Transfer money](https://github.com/projectbank/Documentatie#transfer-money), but do not send a `recipient`.
+
+### Transfer money
+
+Transferring is probably the most difficult API call. That explains just how easy the API is. It requires 4 parameters, although you only need 3 to withdraw, if that is what you like.
+
+#### Request
+
+An example request would look like this: http://bowero.nl/api/clients/transfer.php?nuid=D0CC76A5&pin=0901&amount=300&recipient=SU65USSR182763. 
+
+The result is the balance after the transfer. Just like with the balance requests, this can return `0`. This might be because the balance after the transfer is really 0, but it can also be because the transfer did not succeed. It is your own responsibility to check everything before calling this function.
+
+#### Response
+
+The response will always look like this, even when the transfer did not succeed.
+
+```json
+{
+saldo: 300
+}
+```
