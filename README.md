@@ -3,20 +3,20 @@
 Welcome to the official API of project 3/4. Well, it is not actually official, but we, the Soviet Union, will use it. If you don't, we will call the Gulag. We are very glad that you are just as excited as we are to use this API.
 
 # Table of contents
-1. [How to use the API](https://github.com/projectbank/Documentatie/master#how-to-use-the-api)
-    1. [Create a new client](https://github.com/projectbank/Documentatie/master#create-a-new-client)
-        1. [Request](https://github.com/projectbank/Documentatie/master#request)
-        1. [Response](https://github.com/projectbank/Documentatie/master#response)
-            1. [Success](https://github.com/projectbank/Documentatie/master#success)
-            1. [Error](https://github.com/projectbank/Documentatie/master#error)
-    1. [Check credentials](https://github.com/projectbank/Documentatie/master#check-credentials)
-        1. [Request](https://github.com/projectbank/Documentatie/master#request-1)
-        1. [Response](https://github.com/projectbank/Documentatie/master#response-1)
-            1. [Success](https://github.com/projectbank/Documentatie/master#success-1)
-            1. [Error](https://github.com/projectbank/Documentatie/master#error-1)
-    1. [Check saldo](https://github.com/projectbank/Documentatie/master#check-saldo)
-        1. [Request](https://github.com/projectbank/Documentatie/master#request-2)
-        1. [Response](https://github.com/projectbank/Documentatie/master#response-2)     
+1. [How to use the API](https://github.com/projectbank/Documentatie#how-to-use-the-api)
+    1. [Create a new client](https://github.com/projectbank/Documentatie#create-a-new-client)
+        1. [Request](https://github.com/projectbank/Documentatie#request)
+        1. [Response](https://github.com/projectbank/Documentatie#response)
+            1. [Success](https://github.com/projectbank/Documentatie#success)
+            1. [Error](https://github.com/projectbank/Documentatie#error)
+    1. [Check credentials](https://github.com/projectbank/Documentatie#check-credentials)
+        1. [Request](https://github.com/projectbank/Documentatie#request-1)
+        1. [Response](https://github.com/projectbank/Documentatie#response-1)
+            1. [Success](https://github.com/projectbank/Documentatie#success-1)
+            1. [Error](https://github.com/projectbank/Documentatie#error-1)
+    1. [Check saldo](https://github.com/projectbank/Documentatie#check-saldo)
+        1. [Request](https://github.com/projectbank/Documentatie#request-2)
+        1. [Response](https://github.com/projectbank/Documentatie#response-2)     
 
 ## How to use the API
 
