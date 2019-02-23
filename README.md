@@ -158,7 +158,7 @@ Transferring is probably the most difficult API call. That explains just how eas
 
 An example request would look like this: http://bowero.nl/api/clients/transfer.php?nuid=D0CC76A5&pin=0901&amount=300&recipient=SU65USSR182763. 
 
-The result is the balance after the transfer. Just like with the balance requests, this can return `0`. This might be because the balance after the transfer is really 0, but it can also be because the transfer did not succeed. It is your own responsibility to check everything before calling this function.
+The result is the balance after the transfer. Just like with the balance requests, this can return `0`. If this happens, your transfer was succesful.
 
 #### Response
 
@@ -167,5 +167,23 @@ The response will always look like this, even when the transfer did not succeed.
 ```json
 {
 saldo: 300
+}
+```
+
+There are however two special cases. The returned value of `saldo` can also be `-1` or even `-2`.
+
+If the returned json is the following, your recipient does not exist:
+
+```json
+{
+saldo: -1
+}
+```
+
+If the returned json is the following, you probably don't have enough balance:
+
+```json
+{
+saldo: -2
 }
 ```
