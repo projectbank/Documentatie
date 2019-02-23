@@ -20,7 +20,9 @@ Welcome to the official API of project 3/4. Well, it is not actually official, b
     1. [Withdraw money](https://github.com/projectbank/Documentatie#withdraw-money)
     1. [Transfer money](https://github.com/projectbank/Documentatie#transfer-money)
         1. [Request](https://github.com/projectbank/Documentatie#request-3)
-        1. [Response](https://github.com/projectbank/Documentatie#response-3)    
+        1. [Response](https://github.com/projectbank/Documentatie#response-3) 
+            1. [Success](https://github.com/projectbank/Documentatie#success-2)
+            1. [Error](https://github.com/projectbank/Documentatie#error-2)        
 
 ## How to use the API
 
@@ -162,7 +164,9 @@ The result is the balance after the transfer. Just like with the balance request
 
 #### Response
 
-The response will always look like this, even when the transfer did not succeed.
+##### Success
+
+The response will contain a `saldo` if your transfer succeeded. This will be the balance after the transfer.
 
 ```json
 {
@@ -170,20 +174,12 @@ saldo: 300
 }
 ```
 
-There are however two special cases. The returned value of `saldo` can also be `-1` or even `-2`.
+##### Error
 
-If the returned json is the following, your recipient does not exist:
-
-```json
-{
-saldo: -1
-}
-```
-
-If the returned json is the following, you probably don't have enough balance:
+Sometimes something goes wrong. In that case, you will receive a useful error message. For example, this is a return value you could get.
 
 ```json
 {
-saldo: -2
+error: "The recipient does not exist."
 }
 ```
