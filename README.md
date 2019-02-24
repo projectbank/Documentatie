@@ -160,7 +160,12 @@ To withdraw money from your account, you just have to transfer money without a r
 
 ### Transfer money
 
-Transferring is probably the most difficult API call. That explains just how easy the API is. It requires 4 parameters, although you only need 3 to withdraw, if that is what you like.
+Transferring is probably the most difficult API call. That explains just how easy the API is. It allows 4 parameters, although you only need 3 to withdraw, if that is what you like.
+
+1. __The NUID of the client__ This is the client that wants to transfer money
+2. __The PIN of the client__ To allow the client to transfer money, we need his PIN.
+3. __The amount of money to transfer__ This will be withdrawn from the client's account and transfered to the recipient.
+4. __The IBAN of the recipient _(optional)___ The recipient only needs an IBAN. We will handle the rest. If you don't send a recipient, we will just withdraw the money and you can give it in cash to the client.
 
 #### Request
 
