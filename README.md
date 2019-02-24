@@ -148,7 +148,7 @@ However, when your credentials are wrong, you will be responded this:
 
 ```json
 {
-error: 'Could not log in.'
+error: "Could not log in."
 }
 ```
 
