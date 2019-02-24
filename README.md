@@ -28,13 +28,13 @@ Welcome to the official API of project 3/4. Well, it is not actually official, b
 
 ## How to use the API
 
-The API is very easy to use. All of the requests must be made as GET request. Because we are communists, we will always give you something back to thank you for your work. This will be done in the form of JSON responses.
+The API is very easy to use. All of the requests must be made as POST request. Because we are communists, we will always give you something back to thank you for your work. This will be done in the form of JSON responses.
 
 All of the calls should be made to https://bowero.nl/api/.
 
 ### Create a new client
 
-To create a new, you have to make a call to https://bowero.nl/api/clients/add.php. This requires three GET parameters.
+To create a new, you have to make a call to https://bowero.nl/api/clients/add.php. This requires three POST parameters.
 
 1. __The NUID of the client.__ This should be 8 characters long.
 2. __The PIN of the client.__ Of course, you may pick your own PIN. This should be 4 numbers long. The database will refuse everything that is not an integer.
@@ -44,7 +44,8 @@ To create a new, you have to make a call to https://bowero.nl/api/clients/add.ph
 
 As you might see, this is not a very difficult request. As you may also note, no one mentions the IBAN. That is being generated server side. It is also your response, unless something went wrong.
 
-Example request: http://bowero.nl/api/clients/add.php?nuid=D0CC76AD&name=Example%20Surname&pin=0000
+You can test your reqest online on websites like these: https://www.codepunker.com/tools/http-requests
+Make shure to add the right fields to the reqest.
 
 #### Response
 
