@@ -30,7 +30,7 @@ Welcome to the official API of project 3/4. Well, it is not actually official, b
 
 The API is very easy to use. All of the requests must be made as POST request. Because we are communists, we will always give you something back to thank you for your work. This will be done in the form of JSON responses.
 
-All of the calls should be made to https://bowero.nl/api/.
+All of the calls should be made to https://leutertrekkers.nl/api. The example URLs are GET requests, so you can test easier, but the official API requires you to use POST requests.
 
 ### Create a new client
 
@@ -44,8 +44,8 @@ To create a new, you have to make a call to https://bowero.nl/api/clients/add.ph
 
 As you might see, this is not a very difficult request. As you may also note, no one mentions the IBAN. That is being generated server side. It is also your response, unless something went wrong.
 
-You can test your reqest online on websites like these: https://www.codepunker.com/tools/http-requests
-Make shure to add the right fields to the reqest.
+You can test your requests online on websites like these: https://www.codepunker.com/tools/http-requests
+Make sure to add the right fields to the request.
 
 #### Response
 
