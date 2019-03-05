@@ -30,22 +30,19 @@ Welcome to the official API of project 3/4. Well, it is not actually official, b
 
 The API is very easy to use. All of the requests must be made as POST request. Because we are communists, we will always give you something back to thank you for your work. This will be done in the form of JSON responses.
 
-All of the calls should be made to https://leutertrekkers.nl/api. The example URLs are GET requests, so you can test easier, but the official API requires you to use POST requests.
+All of the calls should be made to https://leutertrekkers.nl/api. You can test your requests online on websites like these: https://www.codepunker.com/tools/http-requests. Make sure to add the right fields to the request.
 
 ### Create a new client
 
-To create a new, you have to make a call to https://bowero.nl/api/clients/add.php. This requires three POST parameters.
+To create a new, you have to make a call to `clients/add.php`. This requires three POST parameters.
 
-1. __The NUID of the client.__ This should be 8 characters long.
-2. __The PIN of the client.__ Of course, you may pick your own PIN. This should be 4 numbers long. The database will refuse everything that is not an integer.
-3. __The name of the client.__ We want to know the name of your client. Please try to avoid customers with names that are longer than 40 characters. We find this unreasonably difficult.
+1. `nuid`: This should be 8 characters long. It is the NUID of the card that you want to add.
+2. `pin` Of course, you may pick your own PIN. This should be 4 numbers long. The database will refuse everything that is not an integer.
+3. `name` We want to know the name of your client. Please try to avoid customers with names that are longer than 40 characters. We find this unreasonably difficult.
 
 #### Request
 
-As you might see, this is not a very difficult request. As you may also note, no one mentions the IBAN. That is being generated server side. It is also your response, unless something went wrong.
-
-You can test your requests online on websites like these: https://www.codepunker.com/tools/http-requests
-Make sure to add the right fields to the request.
+The request should be made to `clients/add.php`.
 
 #### Response
 
@@ -73,18 +70,18 @@ error: "NUID is not 8 charachters."
 
 When a client logs in at your bank, you can check his credentials via our API. To do this, you only have to generate a simple API request. This requires only 2 parameters.
 
-1. __The NUID of the client__ You should always get this from the card to avoid fraud.
-2. __The PIN of the client__ This is what you want to check.
+1. `nuid` You should always get this from the card to avoid fraud.
+2. `pin` This is what you want to check.
 
 The PINs are stored hashed in our database, but you don't have to send the hashed PIN to us. We will handle the checking.
 
 #### Request
 
-An example request will look like this: http://bowero.nl/api/clients/credentials.php?nuid=D0CC76AD&pin=0000
-
-It has 3 return possibilities. 0, 1 and 2.
+The request should be made to `clients/credentials.php`.
 
 #### Response
+
+It has 3 return possibilities. 0, 1 and 2.
 
 ##### Success
 
@@ -122,16 +119,16 @@ This happens when you enter the PIN 3 times wrong. When you enter a correct PIN 
 
 When a client wants to know his saldo, you can send an easy request to the API. We assume that you have already checked the credentials to avoid problems. This requires only 2 parameters.
 
-1. __The NUID of the client__ You should always get this from the card to avoid fraud.
-2. __The PIN of the client__ This should be only the 4 numbers.
+1. `nuid` You should always get this from the card to avoid fraud.
+2. `pin` This should be only the 4 numbers.
 
 #### Request
 
-An example request will look like this: http://bowero.nl/api/clients/saldo.php?nuid=D0CC76AD&pin=0000.
-
-It has 2 return possibilites: a `saldo` or an `error`.
+The request should be made to `clients/saldo.php`.
 
 #### Response
+
+It has 2 return possibilites: a `saldo` or an `error`.
 
 ##### Success
 
@@ -163,18 +160,18 @@ To withdraw money from your account, you just have to transfer money without a r
 
 Transferring is probably the most difficult API call. That explains just how easy the API is. It allows 4 parameters, although you only need 3 to withdraw, if that is what you like.
 
-1. __The NUID of the client__ This is the client that wants to transfer money
-2. __The PIN of the client__ To allow the client to transfer money, we need his PIN.
-3. __The amount of money to transfer__ This will be withdrawn from the client's account and transfered to the recipient.
-4. __The IBAN of the recipient _(optional)___ The recipient only needs an IBAN. We will handle the rest. If you don't send a recipient, we will just withdraw the money and you can give it in cash to the client.
+1. `nuid` This is the client that wants to transfer money. We expect a NUID.
+2. `pin` To allow the client to transfer money, we need his PIN.
+3. `amount` This will be withdrawn from the client's account and transfered to the recipient.
+4. `recipient` The recipient only needs an IBAN. We will handle the rest. If you don't send a recipient, we will just withdraw the money and you can give it in cash to the client.
 
 #### Request
 
-An example request would look like this: http://bowero.nl/api/clients/transfer.php?nuid=D0CC76A5&pin=0901&amount=300&recipient=SU65USSR182763. 
-
-The result is the balance after the transfer. Just like with the balance requests, this can return `0`. If this happens, your transfer was succesful.
+The request should be made to `clients/transfer.php`.
 
 #### Response
+
+The result is the balance after the transfer. Just like with the balance requests, this can return `0`. If this happens, your transfer was succesful.
 
 ##### Success
 
